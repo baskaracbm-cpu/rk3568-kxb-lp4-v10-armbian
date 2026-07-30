@@ -25,3 +25,22 @@
 &sdhci {
 	status = "okay";
 };
+&gmac1 {
+	status = "okay";
+
+	phy-mode = "rgmii";
+	phy-handle = <&rgmii_phy1>;
+
+	/* Vendor configuration */
+	tx_delay = <0x4e>;
+	rx_delay = <0x0b>;
+
+	pinctrl-names = "default";
+	/* pinctrl-0 akan kita isi setelah mapping pinctrl diverifikasi */
+
+	mdio {
+		rgmii_phy1: ethernet-phy@0 {
+			reg = <0>;
+		};
+	};
+};
