@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+
+#include "rk3568.dtsi"
+
+/ {
+	model = "Rockchip RK3568 KXB LP4 V10 Board";
+	compatible = "rockchip,rk3568-kxb-lvds",
+		     "rockchip,rk3568";
+
+	aliases {
+		serial2 = &uart2;
+	};
+
+	chosen {
+		stdout-path = "serial2:1500000n8";
+	};
+};
+
+&uart2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart2m0_xfer>;
+};
+
+&sdhci {
+	status = "okay";
+};
